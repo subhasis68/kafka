@@ -1,6 +1,6 @@
 from confluent_kafka import Producer
 import json
-from data import get_registered_user
+from data import get_live_data
 import time
 
 # Configuration for Kafka
@@ -23,8 +23,8 @@ def delivery_report(err, msg):
 
 if __name__ == "__main__":
     while True:
-        registered_user = get_registered_user()
-        producer.produce("test-topic", key="key1", value=json_serializer(registered_user), callback=delivery_report)
+        live_data = get_live_data()
+        producer.produce("test-topic", key="key1", value=json_serializer(live_data), callback=delivery_report)
         # Wait for all messages to be delivered
         producer.flush()
         time.sleep(2)
