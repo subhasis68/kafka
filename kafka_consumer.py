@@ -9,13 +9,14 @@ conf = {
 consumer = Consumer(conf)
 consumer.subscribe(['test-topic'])
 
-try:
-    while True:
-        msg = consumer.poll(1.0)  # 1 second timeout
-        if msg is None:
-            continue
-        if msg.error():
-            raise KafkaException(msg.error())
-        print(f'Received message: {msg.value().decode("utf-8")}')
-finally:
-    consumer.close()
+if __name__ == "__main__":
+    try:
+        while True:
+            msg = consumer.poll(1.0)  # 1 second timeout
+            if msg is None:
+                continue
+            if msg.error():
+                raise KafkaException(msg.error())
+            print(f'Received message: {msg.value().decode("utf-8")}')
+    finally:
+        consumer.close()
