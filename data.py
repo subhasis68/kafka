@@ -2,6 +2,7 @@ from faker import Faker
 from faker.providers import BaseProvider
 import time
 import random
+from datetime import datetime
 
 class TimestampProvider(BaseProvider):
     def timestamp(self, unix=True):
@@ -21,7 +22,7 @@ def get_live_data():
         "speed" : round(random.uniform(20, 120), 2),
         "temperature" : round(random.uniform(-30, 45), 1),
         "humidity" : random.randint(0, 100),
-        "created_at" : fake.timestamp(unix=False)
+        "created_at" : datetime.now().strftime("%Y-%m-%d~%H:%M:%S")
     }
 
 if __name__ == "__main__":
