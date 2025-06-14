@@ -16,7 +16,7 @@ fake.add_provider(TimestampProvider)
 
 def get_live_data():
     return {
-        "vehicle_id" : random.randint(0, 100),
+        "vehicle_id" : random.randint(1, 5),
         "lat" : round(float(fake.latitude()), 2),
         "long" : round(float(fake.longitude()), 2),
         "speed" : round(random.uniform(20, 120), 2),

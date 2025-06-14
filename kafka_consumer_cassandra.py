@@ -2,6 +2,7 @@ import json
 from confluent_kafka import Consumer, KafkaException
 from cassandra.cluster import Cluster
 from cassandra.query import SimpleStatement
+from datetime import datetime
 
 conf = {
     'bootstrap.servers': 'localhost:9092',
@@ -42,7 +43,7 @@ if __name__ == "__main__":
                 speed = data.get("speed")
                 temperature = data.get("temperature")
                 humidity = data.get("humidity")
-                created_at = data.get("created_at")
+                created_at = datetime.fromisoformat( data.get("created_at") )
                 
 
                 # Insert into Cassandra
