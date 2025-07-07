@@ -1,2 +1,2 @@
-echo "target/" >> .gitignore
-echo "*.jar" >> .gitignore
+target/
+*.jar
