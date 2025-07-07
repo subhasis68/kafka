@@ -23,7 +23,8 @@ def get_live_data():
         "temperature" : round(random.uniform(-30, 45), 1),
         "humidity" : random.randint(0, 100),
         #"created_at" : datetime.now().strftime("%Y-%m-%d~%H:%M:%S"),
-        "created_at" : datetime.now(timezone.utc).isoformat()
+        #"created_at" : datetime.now(timezone.utc).isoformat(timespec='milliseconds').replace('+00:00', 'Z')
+        "created_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3]
     }
 
 if __name__ == "__main__":
