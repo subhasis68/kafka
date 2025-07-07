@@ -20,3 +20,4 @@ producer.produce('test-topic', key='key1', value='Hello Kafka!', callback=delive
 
 # Wait for all messages to be delivered
 producer.flush()
+
