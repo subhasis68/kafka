@@ -15,7 +15,7 @@ consumer.subscribe(['test-topic'])
 # TimescaleDB connection
 conn = psycopg2.connect(
     host="localhost",
-    port=5432,
+    port=5431,
     dbname="kafkadb",
     user="postgres",
     password="mysecretpassword"
